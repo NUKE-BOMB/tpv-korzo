@@ -1,0 +1,12 @@
+body {margin:0;padding:0;background:#111;color:#eee;font-family:Arial;}
+.container{width:600px;margin:20px auto;text-align:center;}
+button{margin:5px;padding:10px 20px;font-size:16px;}
+.panel{position:relative;background:#222;padding:15px;border-radius:6px;margin-top:10px;}
+.closeAdmin{position:absolute;top:8px;right:8px;background:transparent;border:none;color:#fff;font-size:18px;cursor:pointer;}
+.hidden{display:none;}
+.admin-buttons{margin-bottom:10px;}
+.admin-section{margin-top:10px;text-align:left;}
+.section{margin:10px 0;}
+.botella-item{display:flex;justify-content:space-between;margin:5px 0;}
+.botella-item button{margin:0 5px;}
+#distribPago label{display:inline-block;margin:5px;}

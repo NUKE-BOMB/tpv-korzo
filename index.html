@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TPV KORZO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>TPV KORZO</h1>
+    <button onclick="toggleAdminPanel()">Entrar como Administrador</button>
+
+    <div id="adminPanel" class="panel hidden">
+      <button class="closeAdmin" onclick="closeAdminPanel()">✖</button>
+      <h2>Modo Administrador</h2>
+      <div class="admin-buttons">
+        <button onclick="showStatsSection()">Estadísticas</button>
+        <button onclick="showHistorySection()">Historial</button>
+        <button onclick="showCatalogSection()">Catálogo</button>
+        <button onclick="closeCaja()">Cerrar Caja</button>
+      </div>
+      <div id="statsSection" class="admin-section hidden">
+        <p>Entradas vendidas: <span id="statEntradas">0</span></p>
+        <p>Botellas vendidas: <span id="statBotellas">0</span></p>
+        <p>Personas totales: <span id="statPersonas">0</span></p>
+        <p>Importe total: <span id="statImporte">0€</span></p>
+        <p>Recaudado por método:</p>
+        <ul>
+          <li>Efectivo: <span id="statEfectivo">0€</span></li>
+          <li>Tarjeta: <span id="statTarjeta">0€</span></li>
+          <li>Bizum: <span id="statBizum">0€</span></li>
+        </ul>
+      </div>
+      <div id="historySection" class="admin-section hidden">
+        <ul id="historyList"></ul>
+      </div>
+      <div id="catalogSection" class="admin-section hidden">
+        <input id="newBotName" placeholder="Nombre">
+        <input id="newBotPrice" type="number" placeholder="Precio">
+        <button onclick="addBotella()">Agregar Botella</button>
+        <ul id="catalogEditor"></ul>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button onclick="showEntradas()">Comprar Entrada Individual</button>
+      <button onclick="showBotellas()">Comprar Botellas</button>
+    </div>
+
+    <div id="entradas" class="section hidden">
+      <h2>Entradas</h2>
+      <button onclick="cambiarPersonas(1)">+ Persona</button>
+      <button onclick="cambiarPersonas(-1)">- Persona</button>
+    </div>
+
+    <div id="botellas" class="section hidden">
+      <h2>Botellas</h2>
+      <div id="listaBotellas"></div>
+    </div>
+
+    <p id="totalBotellas">Botellas: 0</p>
+    <p id="totalPersonas">Personas totales (incluye botellas): 0</p>
+    <p id="precioTotal">Precio Total: 0€</p>
+
+    <div id="distribPago" class="section">
+      <label>Reparto de Pago (total <span id="totalPago">0</span>€):</label><br>
+      <label>Efectivo: <input id="pagEfectivo" type="number" value="0" min="0"></label>
+      <label>Tarjeta: <input id="pagTarjeta" type="number" value="0" min="0"></label>
+      <label>Bizum: <input id="pagBizum" type="number" value="0" min="0"></label>
+    </div>
+
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
