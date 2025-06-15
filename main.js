@@ -144,14 +144,26 @@ function finalizarCompra(){
 }
 
 // Cerrar caja
+
 function closeCaja(){
   const fecha=new Date().toLocaleString();
-  const summary = `Cierre de Caja\nFecha: ${fecha}\nEntradas: ${stats.entradas}\nBotellas: ${stats.botellas}\nPersonas: ${stats.personas}\nImporte: ${stats.importe}€\n\nPor Método:\nE:$\{stats.porMetodo.Efectivo\}€\nT:$\{stats.porMetodo.Tarjeta\}€\nB:$\{stats.porMetodo.Bizum\}€`;
+  const summary = `Cierre de Caja
+Fecha: ${fecha}
+Entradas: ${stats.entradas}
+Botellas: ${stats.botellas}
+Personas: ${stats.personas}
+Importe: ${stats.importe}€
+
+Por Método:
+Efectivo: ${stats.porMetodo.Efectivo}€
+Tarjeta: ${stats.porMetodo.Tarjeta}€
+Bizum: ${stats.porMetodo.Bizum}€`;
   const w=window.open('','_blank');
   w.document.write('<pre>'+summary+'</pre>'); w.print(); w.close();
   stats={entradas:0,botellas:0,personas:0,importe:0,porMetodo:{Efectivo:0,Tarjeta:0,Bizum:0}};
   history=[]; renderStats();
 }
+
 
 // Catálogo
 function addBotella(){
@@ -163,3 +175,8 @@ function addBotella(){
 
 // Init
 updateTotals(); renderCatalogEditor();
+
+
+function clearZero(input){
+  if(input.value === "0") input.value = "";
+}

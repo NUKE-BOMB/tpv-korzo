@@ -64,9 +64,9 @@
 
     <div id="distribPago" class="section">
       <label>Reparto de Pago (total <span id="totalPago">0</span>€):</label><br>
-      <label>Efectivo: <input id="pagEfectivo" type="number" value="0" min="0"></label>
-      <label>Tarjeta: <input id="pagTarjeta" type="number" value="0" min="0"></label>
-      <label>Bizum: <input id="pagBizum" type="number" value="0" min="0"></label>
+      <label>Efectivo: <input id="pagEfectivo" type="number" value="0" min="0" onfocus="clearZero(this)"></label>
+      <label>Tarjeta: <input id="pagTarjeta" type="number" value="0" min="0" onfocus="clearZero(this)"></label>
+      <label>Bizum: <input id="pagBizum" type="number" value="0" min="0" onfocus="clearZero(this)"></label>
     </div>
 
     <button onclick="finalizarCompra()">Finalizar Compra</button>
